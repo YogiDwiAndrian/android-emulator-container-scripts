@@ -13,7 +13,6 @@
 # limitations under the License.
 FROM {{from_base_img}} AS emulator
 
-RUN echo {{from_base_img}}
 ENV http_proxy http://10.1.71.185:9090
 ENV https_proxy http://10.1.71.185:9090
 
@@ -25,6 +24,7 @@ RUN apt-get install -y --no-install-recommends libc6 libdbus-1-3 libfontconfig1 
 RUN apt-get install -y --no-install-recommends libpulse0 libtinfo5 libx11-6 libxcb1 libxdamage1
 RUN apt-get install -y --no-install-recommends libnss3 libxcomposite1 libxcursor1 libxi6
 RUN apt-get install -y --no-install-recommends libxext6 libxfixes3 zlib1g libgl1
+RUN apt-get install -y libpulse0 
 RUN apt-get install -y pulseaudio
 RUN apt-get install -y --no-install-recommends socat
 RUN apt-get install -y --no-install-recommends iputils-ping
