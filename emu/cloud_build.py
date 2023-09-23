@@ -56,6 +56,7 @@ def create_build_step(for_container, destination):
         return {}
 
     step = for_container.create_cloud_build_step(for_container.image_name())
+    print("yoggg", for_container.image_name())
     step["waitFor"] = ["-"]
     step["id"] = for_container.image_name()
     logging.info("Adding step: %s", step)
