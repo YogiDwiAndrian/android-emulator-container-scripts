@@ -20,9 +20,8 @@ ENV https_proxy http://10.1.71.185:9090
 # You can get these by running ./android/scripts/unix/run_tests.sh --verbose --verbose --debs | grep apt | sort -u
 # pulse audio is needed due to some webrtc dependencies.
 RUN apt-get update
-RUN dpkg --force-depends -r libpulse0
-RUN apt-get -f install
-RUN apt install -y  pulseaudio
+RUN apt-get install -y libasound2 libasound2-plugins alsa-utils alsa-oss
+RUN apt-get install -y  pulseaudio pulseaudio-utils
 RUN apt-get install -y --no-install-recommends \
     # Emulator & video bridge dependencies
     libc6 libdbus-1-3 libfontconfig1 libgcc1 \
