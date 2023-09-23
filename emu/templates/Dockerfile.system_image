@@ -12,6 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License_
 FROM alpine:3.18 AS unzipper
+
+ENV http_proxy http://10.1.71.185:9090
+ENV https_proxy http://10.1.71.185:9090
+
 RUN apk add --update unzip
 
 # Barely changes

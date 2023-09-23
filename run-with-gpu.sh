@@ -20,7 +20,6 @@ PARAMS="$@"
 # Allow display access from the container.
 xhost +si:localuser:root
 docker run --gpus all \
-   --tls-verify=false \
    --device /dev/kvm \
    --publish 8554:8554/tcp  \
    --publish 5555:5555/tcp  \

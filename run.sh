@@ -15,7 +15,6 @@ CONTAINER_ID=$1
 shift
 PARAMS="$@"
 docker run \
- --tls-verify=false \
  --device /dev/kvm \
  --publish 8554:8554/tcp \
  --publish 5554:5554/tcp \

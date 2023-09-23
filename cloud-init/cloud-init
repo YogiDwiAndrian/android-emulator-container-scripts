@@ -96,7 +96,6 @@ write_files:
         NAME=aemu_$IDX
         /usr/bin/docker run --rm -d \
             --name=$NAME \
-            --tls-verify=false \
             --device /dev/kvm \
             -e ADBKEY \
             -e TURN \
