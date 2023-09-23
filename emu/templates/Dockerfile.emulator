@@ -13,6 +13,7 @@
 # limitations under the License.
 FROM {{from_base_img}} AS emulator
 
+RUN echo {{from_base_img}}
 ENV http_proxy http://10.1.71.185:9090
 ENV https_proxy http://10.1.71.185:9090
 
