@@ -10,6 +10,7 @@ PORT=15555
 
 # This will launch the container in the background.
 container_id=$(docker run -d \
+  --tls-verify=false \
   --device /dev/kvm \
   --publish 8554:8554/tcp \
   --publish $PORT:5555/tcp \
