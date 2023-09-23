@@ -92,10 +92,7 @@ class DockerContainer:
         """Creates the docker container, returning the sha of the container, or None in case of failure."""
         identity = None
         image_tag = self.full_name()
-        print("yogi")
-        print(image_tag)
         print(f"docker build {dest} -t {image_tag}")
-        print("yogi")
         try:
             api_client = self.get_api_client()
             logging.info(
@@ -137,7 +134,6 @@ class DockerContainer:
         try:
             tracker = ProgressTracker()
             result = client.pull(self.repo + self.image_name(), self.docker_tag())
-            print("yogs", result)
             for entry in result:
                 tracker.update(entry)
         except docker.errors.APIError as err:
