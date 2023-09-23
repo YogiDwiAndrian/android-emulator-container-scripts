@@ -92,7 +92,10 @@ class DockerContainer:
         """Creates the docker container, returning the sha of the container, or None in case of failure."""
         identity = None
         image_tag = self.full_name()
+        print("yogi")
+        print(image_tag)
         print(f"docker build {dest} -t {image_tag}")
+        print("yogii")
         try:
             api_client = self.get_api_client()
             logging.info(

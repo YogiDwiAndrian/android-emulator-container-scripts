@@ -21,7 +21,7 @@ ENV https_proxy http://10.1.71.185:9090
 # pulse audio is needed due to some webrtc dependencies.
 RUN apt-get update
 RUN apt-get install -y libasound2 libasound2-plugins alsa-utils alsa-oss
-RUN apt-get install pulseaudio 
+RUN apt-get install -y pulseaudio 
 RUN apt-get install pulseaudio-utils
 RUN apt-get install -y --no-install-recommends \
     # Emulator & video bridge dependencies
