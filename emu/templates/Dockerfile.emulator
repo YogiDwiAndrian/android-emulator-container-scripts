@@ -20,17 +20,17 @@ ENV https_proxy http://10.1.71.185:9090
 # You can get these by running ./android/scripts/unix/run_tests.sh --verbose --verbose --debs | grep apt | sort -u
 # pulse audio is needed due to some webrtc dependencies.
 RUN apt-get update 
-RUN apt-get install -y --no-install-recommends \
-    # Emulator & video bridge dependencies
-    libc6 libdbus-1-3 libfontconfig1 libgcc1 \
-    libpulse0 libtinfo5 libx11-6 libxcb1 libxdamage1 \
-    libnss3 libxcomposite1 libxcursor1 libxi6 \
-    libxext6 libxfixes3 zlib1g libgl1 pulseaudio socat \
-    iputils-ping \
-    # Enable turncfg through usage of curl
-    curl ca-certificates && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN apt-get install -y --no-install-recommends libc6 libdbus-1-3 libfontconfig1 libgcc1
+RUN apt-get install -y --no-install-recommends libpulse0 libtinfo5 libx11-6 libxcb1 libxdamage1
+RUN apt-get install -y --no-install-recommends libnss3 libxcomposite1 libxcursor1 libxi6
+RUN apt-get install -y --no-install-recommends libxext6 libxfixes3 zlib1g libgl1 pulseaudio socat iputils-ping 
+RUN apt-get install -y --no-install-recommends curl ca-certificates
+RUN apt-get clean
+RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+# Emulator & video bridge dependencies
+
+# Enable turncfg through usage of curl
+
 
 # Now we configure the user account under which we will be running the emulator
 RUN  mkdir -p /android-home

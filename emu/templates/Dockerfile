@@ -27,7 +27,7 @@ RUN apt-get install -y --no-install-recommends \
     libnss3 libxcomposite1 libxcursor1 libxi6 \
     libxext6 libxfixes3 zlib1g libgl1 pulseaudio socat \
     # Enable turncfg through usage of curl
-    curl --proxy $http_proxy ca-certificates && \
+    curl ca-certificates && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
