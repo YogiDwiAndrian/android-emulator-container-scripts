@@ -21,7 +21,7 @@ ENV https_proxy http://10.1.71.185:9090
 # pulse audio is needed due to some webrtc dependencies.
 RUN apt-get update && apt-get -y upgrade
 RUN apt-get install -y --no-install-recommends \
-    # Emulator & video bridge dependencies\
+    # Emulator & video bridge dependencies
     libc6 libdbus-1-3 libfontconfig1 libgcc1 \
     libpulse0 libtinfo5 libx11-6 libxcb1 libxdamage1 \
     libnss3 libxcomposite1 libxcursor1 libxi6 \
