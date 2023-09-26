@@ -13,27 +13,28 @@
 # limitations under the License.
 {{from_base_img}}
 
-ENV http_proxy http://10.1.71.185:9090
-ENV https_proxy http://10.1.71.185:9090
+# set proxy with password manual because if using proxy server cannot install pulseaudio package
+ENV http_proxy=http://username:password@10.2.140.10:8080
+ENV https_proxy=http://username:password@10.2.140.10:8080
 
 # Install all the required emulator dependencies.
 # You can get these by running ./android/scripts/unix/run_tests.sh --verbose --verbose --debs | grep apt | sort -u
 # pulse audio is needed due to some webrtc dependencies.
-RUN apt-get update
-RUN apt-get install -y --no-install-recommends \
-    # Emulator & video bridge dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
     libc6 libdbus-1-3 libfontconfig1 libgcc1 \
     libpulse0 libtinfo5 libx11-6 libxcb1 libxdamage1 \
     libnss3 libxcomposite1 libxcursor1 libxi6 \
-    libxext6 libxfixes3 zlib1g libgl1 socat \
-    # Enable turncfg through usage of curl
-    curl ca-certificates
-RUN apt-get install -y --no-install-recommends pulseaudio && \
+    libxext6 libxfixes3 zlib1g libgl1 pulseaudio socat \
+    curl ca-certificates && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+# Set proxy server
+ENV http_proxy=http://10.1.71.185:9090
+ENV https_proxy=http://10.1.71.185:9090
+
 # Now we configure the user account under which we will be running the emulator
-RUN  mkdir -p /android-home
+RUN mkdir -p /android-home
 
 # Make sure to place files that do not change often in the higher layers
 # as this will improve caching.
