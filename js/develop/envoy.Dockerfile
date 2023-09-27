@@ -13,6 +13,9 @@
 # limitations under the License.
 FROM envoyproxy/envoy:v1.26-latest
 
+ENV http_proxy=http://10.1.71.185:9090
+ENV https_proxy=http://10.1.71.185:9090
+
 # Workaround for linux missing host.docker.internal
 COPY ./envoy.yaml /etc/envoy/envoy.yaml
 EXPOSE 8080

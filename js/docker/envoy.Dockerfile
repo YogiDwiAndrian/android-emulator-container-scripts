@@ -14,6 +14,10 @@
 #FROM envoyproxy/envoy:latest
 
 FROM envoyproxy/envoy:v1.26-latest
+
+ENV http_proxy=http://10.1.71.185:9090
+ENV https_proxy=http://10.1.71.185:9090
+
 COPY ./envoy.yaml /etc/envoy/envoy.yaml
 EXPOSE 8080
 RUN chmod go+r /etc/envoy/envoy.yaml
